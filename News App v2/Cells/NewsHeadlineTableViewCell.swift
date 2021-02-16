@@ -14,4 +14,8 @@ class NewsHeadlineTableViewCell:    UITableViewCell{
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var headlineImageView:   UIImageView!
     
+    func configure(){
+        
+    }
+    
 }

@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="4xs-uV-PTE" customClass="NewsHeadlineTableViewCell" customModule="News_App_v2" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsHeadlineTableViewCell" rowHeight="80" id="4xs-uV-PTE" customClass="NewsHeadlineTableViewCell" customModule="News_App_v2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4xs-uV-PTE" id="xfA-u3-S8R">
@@ -40,8 +40,8 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZNZ-8B-264">
-                                            <rect key="frame" x="344" y="11" width="50" height="50"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZNZ-8B-264">
+                                            <rect key="frame" x="344" y="12" width="50" height="47.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="2pS-Nn-cBf"/>
                                                 <constraint firstAttribute="width" constant="50" id="5AE-qd-I4x"/>
@@ -57,6 +57,11 @@
                                         <constraint firstItem="ZNZ-8B-264" firstAttribute="leading" secondItem="737-gT-EYe" secondAttribute="trailing" constant="1" id="xjr-3H-y5b"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="N6K-P2-0yd" id="WhH-Gl-xDE"/>
+                                    <outlet property="headlineImageView" destination="ZNZ-8B-264" id="W2g-Ha-iES"/>
+                                    <outlet property="titleLabel" destination="Jbf-F6-lut" id="EVj-6C-c1J"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -90,6 +95,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="photo.fill" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
