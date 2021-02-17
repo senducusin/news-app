@@ -13,5 +13,5 @@ struct Category {
     
     static func all() -> [String]{
         return ["Business", "Entertainment", "General", "Sports"]
-    }
+    } 
 }

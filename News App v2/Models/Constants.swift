@@ -9,5 +9,5 @@ import Foundation
 
 struct Constants {
     let apiKey = "667356415dcf4df6a74c696651754312"
-    let newsCountrySource = "US"
+    let newsCountrySource = "PH"
 }
