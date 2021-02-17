@@ -22,3 +22,15 @@ struct Article: Decodable {
     }
     
 }
+
+extension Article {
+    
+    static func by(_ categoryName:  String) -> Resource<[Article]>{
+        
+        return Resource<[Article]>(url: URL.urlForTopHeadlines(for: categoryName)){ data in
+            return try? JSONDecoder().decode(NewsSourceResponse.self, from: data).articles
+        }
+        
+    }
+    
+}
