@@ -54,4 +54,13 @@ extension NewsHeadlineTableViewController{
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let name = self.categoryListVM.categoryAtIndex(index: section).name
+        return UIView.viewForSectionHeader(title: name)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return categoryListVM.heightForHeaderInSection(section)
+    }
 }

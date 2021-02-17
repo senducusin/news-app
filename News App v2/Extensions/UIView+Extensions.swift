@@ -22,4 +22,19 @@ extension UIView {
         substitleView.addSubview(subtitleLabel)
         return substitleView
     }
+    
+    static func viewForSectionHeader(title: String) -> UIView {
+        let screenRect = UIScreen.main.bounds
+        
+        let headerView = UIView(frame: CGRect(x: 15, y: 0, width: screenRect.width, height: 60))
+        headerView.backgroundColor = .white
+        
+        let sectionHeaderLabel = UILabel(frame: headerView.frame)
+        sectionHeaderLabel.text = title.uppercased()
+        sectionHeaderLabel.textColor = .black
+        sectionHeaderLabel.font = UIFont.fontForSectionHeaderTitle()
+        
+        headerView.addSubview(sectionHeaderLabel)
+        return headerView
+    }
 }
