@@ -10,6 +10,8 @@ import UIKit
 
 class NewsHeadlineTableViewController: UITableViewController{
     
+    private var categoryListVM: CategoryListViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,9 +20,10 @@ class NewsHeadlineTableViewController: UITableViewController{
     }
     
     private func populateHeadlinesAndArticles(){
-        CategoryService().getAllHeadlinesForAllCategories(){ categories in
+        CategoryService().getAllHeadlinesForAllCategories(){ [weak self] categories in
             
-            print(categories)
+            self?.categoryListVM = CategoryListViewModel(categories: categories)
+            self?.tableView.reloadData()
             
         }
     }
@@ -31,5 +34,23 @@ class NewsHeadlineTableViewController: UITableViewController{
 }
 
 extension NewsHeadlineTableViewController{
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return self.categoryListVM == nil ? 0 : self.categoryListVM.numberOfSections
+    }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.categoryListVM.numberOfRowsInSection(section)
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsHeadlineTableViewCell", for: indexPath) as? NewsHeadlineTableViewCell else {
+            fatalError("NewsHeadlineTableViewCell not found!")
+        }
+        
+        let articleVM = self.categoryListVM.categoryAtIndex(index: indexPath.section).articleAtIndex(index: indexPath.row)
+        
+        cell.configure(vm: articleVM)
+        
+        return cell
+    }
 }
