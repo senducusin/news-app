@@ -19,6 +19,28 @@ class NewsHeadlineTableViewController: UITableViewController{
         self.populateHeadlinesAndArticles()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "NewsDetailsViewController"{
+            prepareSegueForNewsDetails(segue)
+        }
+        
+    }
+    
+    private func prepareSegueForNewsDetails(_ segue: UIStoryboardSegue){
+        guard let newsDetailsVC = segue.destination as? NewsDetailsViewController else {
+            fatalError("NewsDetailsVC is not defined")
+        }
+        
+        guard let indexPath = tableView.indexPathForSelectedRow else {
+            fatalError("Unable to get the selected row")
+        }
+        
+        let articleVM = self.categoryListVM.categoryAtIndex(index: indexPath.section).articleAtIndex(index: indexPath.row)
+        
+        newsDetailsVC.article = articleVM.article
+    }
+    
     private func populateHeadlinesAndArticles(){
         CategoryService().getAllHeadlinesForAllCategories(){ [weak self] categories in
             

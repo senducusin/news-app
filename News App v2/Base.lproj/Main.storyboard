@@ -63,7 +63,7 @@
                                     <outlet property="descriptionLabel" destination="N6K-P2-0yd" id="WhH-Gl-xDE"/>
                                     <outlet property="headlineImageView" destination="ZNZ-8B-264" id="W2g-Ha-iES"/>
                                     <outlet property="titleLabel" destination="Jbf-F6-lut" id="EVj-6C-c1J"/>
-                                    <segue destination="3eW-ZO-11z" kind="show" id="b3b-jE-8eO"/>
+                                    <segue destination="3eW-ZO-11z" kind="show" identifier="NewsDetailsViewController" id="b3b-jE-8eO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -78,10 +78,10 @@
             </objects>
             <point key="canvasLocation" x="894.20289855072474" y="96.428571428571431"/>
         </scene>
-        <!--View Controller-->
+        <!--News Details View Controller-->
         <scene sceneID="PmB-Hd-qrJ">
             <objects>
-                <viewController id="3eW-ZO-11z" sceneMemberID="viewController">
+                <viewController id="3eW-ZO-11z" customClass="NewsDetailsViewController" customModule="News_App_v2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yMQ-4G-Hen">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,6 +105,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="N0H-6E-EUM"/>
+                    <connections>
+                        <outlet property="webView" destination="SOZ-pa-96q" id="PRL-Ya-cND"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gqs-Vn-9dN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
