@@ -40,7 +40,11 @@ extension ArticleViewModel {
         
         let resource = ImageResource(downloadURL: imageUrl)
                 
-        KingfisherManager.shared.retrieveImage(with: resource, options: nil, progressBlock: nil) { result in
+        KingfisherManager.shared.retrieveImage(with: resource, options: [
+            .scaleFactor(UIScreen.main.scale),
+            .transition(.fade(1)),
+            .cacheOriginalImage
+        ], progressBlock: nil) { result in
             switch result {
             case .success(let value):
                 completion(value.image)
