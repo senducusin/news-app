@@ -51,6 +51,7 @@ extension NewsHeadlineTableViewController{
         let articleVM = self.categoryListVM.categoryAtIndex(index: indexPath.section).articleAtIndex(index: indexPath.row)
         
         cell.configure(vm: articleVM)
+//        cell.accessoryType = .disclosureIndicator
         
         return cell
     }
