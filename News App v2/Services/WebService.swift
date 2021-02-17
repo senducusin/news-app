@@ -14,6 +14,7 @@ struct Resource<T>{
 
 class WebService{
     func load<T>(_ resource: Resource<T>, completion: @escaping (T?)->()){
+        
         URLSession.shared.dataTask(with: resource.url){ data, response, error in
             
             if let data = data {
