@@ -30,6 +30,7 @@ class NewsHeadlineTableViewController: UITableViewController{
     
     private func setupUI(){
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.tableView.tableHeaderView = UIView.viewForTableViewHeader(title:Date().formatAsString())
     }
 }
 
