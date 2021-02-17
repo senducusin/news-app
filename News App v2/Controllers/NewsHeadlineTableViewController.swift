@@ -12,7 +12,9 @@ class NewsHeadlineTableViewController: UITableViewController{
     
     let news = [
         ["title":"Dummy Title",
-         "description":"This is a sample description"]
+         "description":"This is a sample description"],
+        ["title":"Dummy Title Dummy Title Dummy Title Dummy Title",
+         "description":"This is a sample description This is a sample description This is a sample description This is a sample description"]
     ]
     
     override func viewDidLoad() {
