@@ -16,13 +16,15 @@ extension UIImage {
     
     static func imageForHeadline(url: String, completion:@escaping(UIImage) -> ()){
         guard let imageURL = URL(string: url) else {
-            completion(UIImage.imageForPlaceholder())
+            DispatchQueue.main.async {
+                completion(UIImage.imageForPlaceholder())
+            }
             return
         }
         
-        DispatchQueue.main.async {
-            if let data = try? Data(contentsOf: imageURL){
-                if let downloadImage = UIImage(data: data) {
+        if let data = try? Data(contentsOf: imageURL){
+            if let downloadImage = UIImage(data: data) {
+                DispatchQueue.main.async {
                     completion(downloadImage)
                 }
             }
