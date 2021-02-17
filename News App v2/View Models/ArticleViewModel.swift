@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 struct ArticleViewModel {
     private(set) var article: Article
@@ -28,14 +29,23 @@ extension ArticleViewModel {
     }
     
     func image(completion: @escaping(UIImage?)->()){
-        guard let imageURL = article.imageURL else {
-            completion(nil)
+        guard let urlString = article.imageURL else {
+            completion(UIImage.imageForPlaceholder())
             return
         }
         
-        UIImage.imageForHeadline(url: imageURL) {image in
-            DispatchQueue.main.async {
-                completion(image)
+        guard let imageUrl = URL.init(string: urlString) else {
+            return  completion(UIImage.imageForPlaceholder())
+        }
+        
+        let resource = ImageResource(downloadURL: imageUrl)
+                
+        KingfisherManager.shared.retrieveImage(with: resource, options: nil, progressBlock: nil) { result in
+            switch result {
+            case .success(let value):
+                completion(value.image)
+            case .failure:
+                completion(nil)
             }
         }
         
