@@ -14,6 +14,15 @@ class NewsHeadlineTableViewController: UITableViewController{
         super.viewDidLoad()
         
         self.setupUI()
+        self.populateHeadlinesAndArticles()
+    }
+    
+    private func populateHeadlinesAndArticles(){
+        CategoryService().getAllHeadlinesForAllCategories(){ categories in
+            
+            print(categories)
+            
+        }
     }
     
     private func setupUI(){

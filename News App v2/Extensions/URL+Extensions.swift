@@ -10,7 +10,10 @@ import Foundation
 extension URL {
     
     static func urlForTopHeadlines(for categoryName: String) -> URL {
-        return URL(string: "https://newsapi.org/v2/top-headlines?category=\(categoryName)&apiKey=\(Constants().apiKey)")!
+        
+        let const = Constants()
+        
+        return URL(string: "https://newsapi.org/v2/top-headlines?category=\(categoryName)&country=\(const.newsCountrySource)&apiKey=\(const.apiKey)")!
     }
     
 }
