@@ -17,7 +17,7 @@ The API used is from https://newsapi.org/
 - Displays the current date  
 - Displays news from Business, Sports, General, and Entertainment categories  
 - Selecting a news from the list will take you to the news' web source  
-- Cache the image once downloaded
+- Cache the images from the news list once downloaded
 
 ---
 
