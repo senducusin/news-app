@@ -1,4 +1,4 @@
-**Flood Crowd Sourcing App using MVC**
+**News App v2 using MVVM**
 
 An app that displays current news from different categories such as Business, Sports, General, and Entertainment. 
 
