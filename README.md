@@ -2,7 +2,7 @@
 
 An app that displays current news from different categories such as Business, Sports, General, and Entertainment. 
 
-This is a sample app that utilizes NewsApi.org's API, Kingfisher, and UIKit. The source code, demonstrates a simple implementation of MVVM structure in Swift.
+This is a sample app that utilizes NewsApi.org's API, WebKit, UIKit, and Kingfisher. The source code, demonstrates a simple implementation of MVVM structure in Swift.
   
 ---
 
