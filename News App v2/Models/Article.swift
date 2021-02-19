@@ -27,7 +27,7 @@ struct Article: Decodable {
         case name
     }
     
-    // To flatten the model, sourceName is located inside a container called source inside the article container.
+    // To flatten the model. sourceName is located inside a container called source, inside the article container.
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: ArticleKeys.self)
         
